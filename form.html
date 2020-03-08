@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Form Validation</title>    
+        <script>
+            function validate()
+        {
+                                var e= document.forms["myform"]["em"].value;
+
+                    var a=e.split(".");
+                if(e== ""){
+                    alert("please enter your email");
+                    return false;
+                }
+                if(e.indexOf("@",0)<0){
+                        alert("Your email should be like 'xxx@yyy.zzz'");
+                        e.focus();
+                        return false;
+                }
+                if(e.indexOf(".",0)<0){
+                    alert("After @ your email should contain '___.___'");
+                    e.focus();
+                    return false;
+                }
+                if(a[1].length<2){
+                    alert("After '.' atleast two character required");
+                    e.focus();
+                    return false;
+                }
+                alert("Email entered successfully");
+                
+        }
+                
+                
+                
+                 function val(){
+                     var password = document.forms["myform"]["pw"].value;
+        var confirmPassword = document.forms["myform"]["cpw"].value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+            }
+                            
+             
+        </script>
+        <style>
+            h3{
+             text-align: center;   
+            }
+            .ff
+            {
+                width: 300px;
+                height: 500px;
+                padding: 30px;
+                border: 3px solid #555;
+                border-style: double;
+                margin: 0 auto; 
+                
+            }
+            form 
+            {                                         
+                
+                
+            }
+            input[type="submit"] 
+            {
+                display: block;
+                margin-left: 110px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>FORM VALIDATION</h3>
+        <div class="ff">
+        <form name="myform" >
+            FIRST NAME:<p><input type="text" size="40" name="fname" placeholder="First name" required></p><br>
+            LAST NAME:<p><input type="text" size="40" name="lname" placeholder="Last name" required></p><br>     
+            EMAIL:<p><input type="text" size="40" name="em" placeholder="enter the valid email address" required ></p><br>
+            USER ID:<p><input type="text" size="40" name="uid" placeholder="enter your user-ID" required></p><br>
+            PASSWORD:<p><input type="password" size="40" name="pw" placeholder="enter your password" id="Password" required></p><br>
+            CONFIRM PASSWORD:<p><input type="password" size="40" name="cpw" id="ConfirmPssword" oninput="val()" placeholder="re-enter the password correctly"required></p><br>
+            
+            <input type="submit"  value="submit" onclick="validate()">    
+        </form>
+        </div>    
+    </body>
+</html>
